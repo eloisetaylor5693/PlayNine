@@ -4,7 +4,6 @@ import ButtonFrame from './Frames/ButtonFrame';
 import DoneFrame from './Frames/DoneFrame';
 import NumbersFrame from './Frames/NumbersFrame';
 import StarsFrame from './Frames/StarsFrame';
-import possibleCombinationSum from './possibleCombinationSum';
 
 class Game extends Component {
   constructor(props) {
@@ -19,6 +18,7 @@ class Game extends Component {
     this.checkAnswer = this.checkAnswer.bind(this);
     this.acceptAnswer = this.acceptAnswer.bind(this);
     this.redraw = this.redraw.bind(this);
+    this.possibleCombinationSum = this.possibleCombinationSum.bind(this);
     this.possibleSolution = this.possibleSolution.bind(this);
     this.updateDoneStatus = this.updateDoneStatus.bind(this);
   }
@@ -96,7 +96,7 @@ class Game extends Component {
       }
     }
 
-    return possibleCombinationSum(possibleNumbers, numberOfStars);
+    return this.possibleCombinationSum(possibleNumbers, numberOfStars);
   }
   updateDoneStatus() {
     if (this.state.usedNumbers.length === 9) {
@@ -106,7 +106,25 @@ class Game extends Component {
     if (this.state.redraws ===0 && !this.possibleSolution()) {
       this.setState({ doneStatus: 'Game Over!' });
     }
-  }
+  } 
+  possibleCombinationSum (arr, n){
+    if (arr.indexOf(n) >= 0) { return true; }
+    if (arr[0] > n) { return false; }
+    if (arr[arr.length - 1] > n) {
+      arr.pop();
+      return this.possibleCombinationSum(arr, n);
+    }
+    var listSize = arr.length, combinationsCount = (1 << listSize)
+    for (var i = 1; i < combinationsCount ; i++ ) {
+      var combinationSum = 0;
+      for (var j=0 ; j < listSize ; j++) {
+        if (i & (1 << j)) { combinationSum += arr[j]; }
+      }
+      if (n === combinationSum) { return true; }
+    }
+    return false;
+  };
+  
   render() {
     var selectedNumbers = this.state.selectedNumbers,
         usedNumbers = this.state.usedNumbers,
