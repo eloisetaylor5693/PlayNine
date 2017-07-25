@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Glyphicon } from 'react-bootstrap';
-//import { Glyphicon } from 'bootstrap';
 
 class StarsFrame extends Component {
   render() {
