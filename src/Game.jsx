@@ -47,7 +47,7 @@ class Game extends Component {
   }
   unselectNumber(clickedNumber) {
     var selectedNumbers = this.state.selectedNumbers,
-        indexOfNumber = this.selectedNumbers.indexOf(clickedNumber);
+        indexOfNumber = selectedNumbers.indexOf(clickedNumber);
 
     selectedNumbers.splice(indexOfNumber, 1);
 
