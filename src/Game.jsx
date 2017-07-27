@@ -100,11 +100,11 @@ class Game extends Component {
   }
   updateDoneStatus() {
     if (this.state.usedNumbers.length === 9) {
-      this.setState({ doneStatus: 'Done. Nice!' });
+      this.setState({ doneStatus: 'You won at life by winning this game!' });
       return;
     }
     if (this.state.redraws ===0 && !this.possibleSolution()) {
-      this.setState({ doneStatus: 'Game Over!' });
+      this.setState({ doneStatus: 'You lost! Game Over!' });
     }
   } 
   possibleCombinationSum (arr, n){
@@ -144,23 +144,25 @@ class Game extends Component {
     }
 
     return (
-      <div id="game">
-        <h2>Play Nine</h2>
-        <hr />
-        <div className="clearfix">
-          <StarsFrame numberOfStars={numberOfStars} />
-          <ButtonFrame selectedNumbers={selectedNumbers}
-                       correct={correct}
-                       redraws={redraws}
-                       checkAnswer={this.checkAnswer}
-                       acceptAnswer={this.acceptAnswer}
-                       redraw={this.redraw} />
-          <AnswerFrame selectedNumbers={selectedNumbers}
-                       unselectNumber={this.unselectNumber} />
+      <div className="container">
+        <div id="game">
+          <h2>Play Nine</h2>
+          <hr />
+          <div className="clearfix">
+            <StarsFrame numberOfStars={numberOfStars} />
+            <ButtonFrame selectedNumbers={selectedNumbers}
+                        correct={correct}
+                        redraws={redraws}
+                        checkAnswer={this.checkAnswer}
+                        acceptAnswer={this.acceptAnswer}
+                        redraw={this.redraw} />
+            <AnswerFrame selectedNumbers={selectedNumbers}
+                        unselectNumber={this.unselectNumber} />
+          </div>
+
+          {bottomFrame}
+
         </div>
-
-        {bottomFrame}
-
       </div>
     );
   }
