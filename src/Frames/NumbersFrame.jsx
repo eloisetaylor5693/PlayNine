@@ -11,7 +11,7 @@ class NumbersFrame extends Component {
       className = "number selected-" + (selectedNumbers.indexOf(i)>=0);
       className += " used-" + (usedNumbers.indexOf(i)>=0);
       numbers.push(
-        <div className={className} onClick={selectNumber.bind(null, i)}>
+        <div className={className} onClick={selectNumber.bind(null, i)} key={i.toString()}>
           {i}
         </div>
       );

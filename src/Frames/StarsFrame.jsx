@@ -5,7 +5,7 @@ class StarsFrame extends Component {
     var stars = [];
     for (var i =0; i < this.props.numberOfStars; i++) {
       stars.push(
-        <span className="glyphicon glyphicon-star"></span>
+        <span className="glyphicon glyphicon-star" key={i.toString()}></span>
       );
     }
 
