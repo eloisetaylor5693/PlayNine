@@ -10,6 +10,7 @@ class Game extends Component {
     super(props);
     this.state = this.getInitialState();
 
+    this.getInitialState = this.getInitialState.bind(this);
     this.selectNumber = this.selectNumber.bind(this);
     this.unselectNumber = this.unselectNumber.bind(this);
     this.resetGame = this.resetGame.bind(this);
@@ -32,7 +33,7 @@ class Game extends Component {
              doneStatus: null };
   }
   resetGame() {
-    this.replaceState(this.getInitialState());
+    this.setState(this.getInitialState());
   }
   randomNumber() {
     return Math.floor(Math.random()*9) + 1
