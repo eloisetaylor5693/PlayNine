@@ -5,7 +5,7 @@ class AnswerFrame extends Component {
     var props = this.props;
     var selectedNumbers = props.selectedNumbers.map(function(i) {
       return (
-        <span onClick={props.unselectNumber.bind(null, i)}>
+        <span onClick={props.unselectNumber.bind(null, i)} key={i.toString()}>
           {i}
         </span>
       )
