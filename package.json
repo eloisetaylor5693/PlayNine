@@ -22,5 +22,11 @@
   "devDependencies": {
     "surge": "^0.20.1"
   },
-  "snyk": true
+  "snyk": true,
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
