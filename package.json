@@ -4,11 +4,11 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "react": "^16.5.2",
+    "react": "^16.11.0",
     "react-bootstrap": "^0.32.4",
-    "react-dom": "^16.5.2",
-    "react-fontawesome": "^1.6.1",
-    "react-scripts": "^3.0.0",
+    "react-dom": "^16.11.0",
+    "react-fontawesome": "^1.7.1",
+    "react-scripts": "^3.2.0",
     "snyk": "^1.130.0"
   },
   "scripts": {
@@ -18,7 +18,7 @@
     "publish": "npm run build && surge -d play-nine-demo.surge.sh -p build"
   },
   "devDependencies": {
-    "surge": "^0.20.3"
+    "surge": "^0.21.3"
   },
   "snyk": true,
   "browserslist": [
