@@ -15,9 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "publish": "npm run build && surge -d play-nine-demo.surge.sh -p build",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "publish": "npm run build && surge -d play-nine-demo.surge.sh -p build"
   },
   "devDependencies": {
     "surge": "^0.20.3"
