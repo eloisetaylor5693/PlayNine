@@ -9,13 +9,15 @@
     "react-dom": "^16.5.2",
     "react-fontawesome": "^1.6.1",
     "react-scripts": "^3.4.0",
-    "snyk": "^1.130.0"
+    "snyk": "^1.316.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "publish": "npm run build && surge -d play-nine-demo.surge.sh -p build"
+    "publish": "npm run build && surge -d play-nine-demo.surge.sh -p build",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "surge": "^0.20.3"
