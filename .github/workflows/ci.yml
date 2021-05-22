@@ -43,6 +43,7 @@ jobs:
   publish:
     name: 'Publish site to surge'
     runs-on: ubuntu-latest
+    needs: [build]
     steps:
     - uses: actions/checkout@v2
     
