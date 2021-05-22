@@ -38,3 +38,24 @@ jobs:
         path: 'build'
         retention-days: 10
   
+  
+  
+  publish:
+    name: 'Publish site to surge'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.0.9
+      with:
+        name: '15.x'
+        path: './build'
+
+    - name: Publish to surge.sh
+      uses: dswistowski/surge-sh-action@v1.0.1
+      with:
+        domain: 'play-nine-demo.surge.sh'
+        project: 'build'
+        login: ${{ secrets.surge_login }}
+        token: ${{ secrets.surge_token }}
